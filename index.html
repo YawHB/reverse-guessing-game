@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Reverse Guessing Game</title>
+    </head>
+    <body>
+        <h1>Reverse Guessing Game</h1>
+        <p>Think of a number between 0-100 and the machine will try to guess it</p>
+
+        <div>
+            <button id="btn-start">Click here to start</button>
+            <div id="btns-response">
+                <button class="wrong answer" id="too-high">Too High</button>
+                <button class="correct answer" id="correct">Correct</button>
+                <button class="wrong answer" id="too-low">Too Low</button>
+            </div>
+            <ol id="guesses"></ol>
+            <div id="display-success"></div>
+        </div>
+        <div>
+            <button id="btn-restart">Restart</button>
+        </div>
+    </body>
+    <script src="app.js"></script>
+</html>

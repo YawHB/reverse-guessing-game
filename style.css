@@ -1,0 +1,18 @@
+body {
+    background-color: rgb(77, 72, 72);
+}
+#btns-response {
+    display: flex;
+}
+
+.wrong {
+    background-color: crimson;
+}
+
+.correct {
+    background-color: limegreen;
+}
+
+.answer {
+    margin-right: 10px;
+}
