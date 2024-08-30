@@ -4,7 +4,7 @@ let guess;
 let btnTooHigh = document.querySelector('#too-high');
 let btnTooLow = document.querySelector('#too-low');
 let btnCorrect = document.querySelector('#correct');
-let btnRestart = document.querySelector('#restart');
+let btnRestart = document.querySelector('#btn-restart');
 
 function init() {
     document.querySelector('#btn-start').addEventListener('click', makeGuess);
@@ -42,6 +42,7 @@ function addBtnEvents() {
     btnTooLow.addEventListener('click', makeGuess);
     btnTooHigh.addEventListener('click', makeGuess);
     btnCorrect.addEventListener('click', displayCorrectGuess);
+    btnRestart.addEventListener('click', restartGame);
 }
 
 function displayCorrectGuess() {
@@ -54,4 +55,18 @@ function displayCorrectGuess() {
 
 function generateNumber() {
     return Math.floor(Math.random() * 10);
+}
+
+function restartGame() {
+    toggleStartButton(false);
+    toggleFeedBackButtons(true);
+    clearGuesses();
+    init();
+}
+
+function clearGuesses() {
+    const guessList = document.querySelector('#guesses');
+    const correctGuess = document.querySelector('#display-success');
+    guessList.innerHTML = '';
+    correctGuess.innerHTML = '';
 }
