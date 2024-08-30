@@ -7,15 +7,25 @@ let btnCorrect = document.querySelector('#correct');
 let btnRestart = document.querySelector('#btn-restart');
 
 function init() {
-    document.querySelector('#btn-start').addEventListener('click', makeGuess);
+    document.querySelector('#btn-start').addEventListener('click', startGame);
     toggleFeedBackButtons(true);
     addBtnEvents();
 }
 
-function makeGuess() {
+function startGame() {
+    document.querySelector('#btn-start').removeEventListener('click', startGame);
     toggleStartButton(true);
-    document.querySelector('#btn-start').removeEventListener('click', makeGuess);
     toggleFeedBackButtons(false);
+    guess = generateNumber();
+}
+
+function tooHigh() {
+    console.log('inside tooHigh function');
+    guess = generateNumber();
+    displayWrongGuess(guess);
+}
+function tooLow() {
+    console.log('inside tooLow function');
     guess = generateNumber();
     displayWrongGuess(guess);
 }
@@ -39,8 +49,8 @@ function toggleFeedBackButtons(isHidden) {
 }
 
 function addBtnEvents() {
-    btnTooLow.addEventListener('click', makeGuess);
-    btnTooHigh.addEventListener('click', makeGuess);
+    btnTooHigh.addEventListener('click', tooHigh);
+    btnTooLow.addEventListener('click', tooLow);
     btnCorrect.addEventListener('click', displayCorrectGuess);
     btnRestart.addEventListener('click', restartGame);
 }
